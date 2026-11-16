@@ -1,0 +1,237 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #152423;
+  --color-ink-soft: #4b5b58;
+  --color-paper: #f4f1ea;
+  --color-cream: #fbf9f4;
+  --color-primary: #0e7569;
+  --color-primary-deep: #0a574f;
+  --color-pine: #0b2422;
+  --color-pine-soft: #12332f;
+  --color-accent: #e0703f;
+  --color-gold: #b98a2f;
+  --color-line: #e4dfd3;
+  --font-sans: "Cairo", "Segoe UI", system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  background-image:
+    radial-gradient(1200px 500px at 90% -10%, rgba(14, 117, 105, 0.08), transparent 60%),
+    radial-gradient(900px 400px at 0% 110%, rgba(185, 138, 47, 0.06), transparent 60%);
+}
+
+::selection {
+  background: rgba(14, 117, 105, 0.25);
+}
+
+/* scrollbars */
+*::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  background: #cfc9ba;
+  border-radius: 99px;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #b8b1a0;
+}
+
+.card {
+  background: var(--color-cream);
+  border: 1px solid var(--color-line);
+  border-radius: 1.25rem;
+  box-shadow: 0 1px 2px rgba(21, 36, 35, 0.04), 0 8px 24px -12px rgba(21, 36, 35, 0.08);
+}
+
+.input {
+  width: 100%;
+  border: 1px solid var(--color-line);
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 0.55rem 0.85rem;
+  font-size: 0.875rem;
+  color: var(--color-ink);
+  outline: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.input::placeholder {
+  color: #a8a294;
+}
+.input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(14, 117, 105, 0.15);
+}
+
+.label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-ink-soft);
+  margin-bottom: 0.35rem;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background: linear-gradient(160deg, #11796d, #0a574f);
+  color: #fff;
+  font-weight: 800;
+  font-size: 0.85rem;
+  padding: 0.6rem 1.1rem;
+  border-radius: 0.85rem;
+  box-shadow: 0 6px 16px -6px rgba(10, 87, 79, 0.5);
+  transition: transform 0.15s, box-shadow 0.15s, filter 0.15s;
+  cursor: pointer;
+  border: none;
+}
+.btn-primary:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px -8px rgba(10, 87, 79, 0.55);
+}
+.btn-primary:active {
+  transform: translateY(0);
+}
+.btn-primary:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: transparent;
+  border: 1px solid var(--color-line);
+  color: var(--color-ink-soft);
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 0.75rem;
+  transition: all 0.15s;
+  cursor: pointer;
+}
+.btn-ghost:hover {
+  background: #fff;
+  border-color: #cfc9ba;
+  color: var(--color-ink);
+}
+
+.btn-danger {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: #fff;
+  border: 1px solid #fecdd3;
+  color: #be123c;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 0.5rem 0.9rem;
+  border-radius: 0.75rem;
+  transition: all 0.15s;
+  cursor: pointer;
+}
+.btn-danger:hover {
+  background: #fff1f2;
+}
+
+.pine-pattern {
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  background-size: 22px 22px;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #ece8dd 25%, #f6f3ec 50%, #ece8dd 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+  border-radius: 0.75rem;
+}
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 rgba(224, 112, 63, 0.45); }
+  70% { box-shadow: 0 0 0 10px rgba(224, 112, 63, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(224, 112, 63, 0); }
+}
+.pulse-ring {
+  animation: pulse-ring 2s infinite;
+}
+
+/* rtl adjustments for recharts */
+.recharts-wrapper {
+  direction: ltr;
+}
+
+/* public booking page inputs */
+.book-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 0.4rem;
+}
+.book-input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 0.9rem;
+  padding: 0.7rem 0.9rem;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #fff;
+  outline: none;
+  transition: border-color 0.15s, background 0.15s;
+}
+.book-input::placeholder {
+  color: rgba(255, 255, 255, 0.25);
+  font-weight: 600;
+}
+.book-input:focus {
+  border-color: rgba(45, 212, 191, 0.6);
+  background: rgba(255, 255, 255, 0.1);
+}
+.book-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 800;
+  font-size: 0.8rem;
+  padding: 0.7rem 1.1rem;
+  border-radius: 0.9rem;
+  transition: all 0.15s;
+  cursor: pointer;
+}
+.book-back:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}
+
+input[type="date"],
+input[type="time"],
+input[type="datetime-local"] {
+  direction: ltr;
+  text-align: end;
+}
